@@ -1,1 +1,1 @@
-# GreenCheap Themue
+# GreenCheap Theme
