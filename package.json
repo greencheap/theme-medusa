@@ -1,0 +1,26 @@
+{
+    "name": "medusa",
+    "scripts": {
+        "webpack": "webpack --colors --config webpack.dev.js",
+        "webpack-watch": "webpack --watch --colors --config webpack.dev.js",
+        "icons": "cpx 'images/icons/**/*' node_modules/uikit/custom/icons && cd node_modules/uikit && npm install && yarn compile && cd -",
+        "webpack-build": "webpack --colors --config webpack.prod.js",
+        "archive": "yarn webpack-build && composer archive --format=zip"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.3",
+        "babel-loader": "^8.0.5",
+        "css-loader": "^2.1.1",
+        "less": "^3.12.2",
+        "less-loader": "^6.2.0",
+        "style-loader": "^1.0.0",
+        "cpx": "^1.5.0",
+        "uikit": "^3.6.17",
+        "vue-loader": "^15.8.3",
+        "vue-style-loader": "^4.1.2",
+        "vue-template-compiler": "^2.6.11",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10",
+        "webpack-merge": "^4.2.2"
+    }
+}
