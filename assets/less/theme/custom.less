@@ -1,0 +1,56 @@
+@navbar-nav-item-padding-horizontal: 20px;
+@navbar-nav-item-height: 120px;
+@navbar-background: @global-background;
+@navbar-nav-item-color: @global-color;
+@navbar-nav-item-font-size: @global-small-font-size;
+@navbar-nav-item-font-family: "Montserrat", sans-serif;
+@navbar-nav-item-hover-color: @global-color;
+@navbar-nav-item-onclick-color: @global-color;
+@navbar-nav-item-active-color: @global-color;
+
+.hook-navbar-nav-item() {
+    font-weight: 500;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.uk-navbar-nav > li > a::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 0%;
+    height: 2px;
+    bottom: 30px;
+    background: @global-primary-background;
+    transition: all 0.3s ease-in-out;
+}
+
+.uk-navbar-nav > li:hover > a::after,
+.uk-navbar-nav > li > a:focus::after,
+.uk-navbar-nav > li > a.uk-open::after,
+.uk-navbar-nav > li.uk-active > a::after {
+    width: 80%;
+}
+
+.tm-blogs {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.tm-text-cardo {
+    text-transform: capitalize !important;
+    font-weight: bold;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    font-family: "Cardo", serif !important;
+}
