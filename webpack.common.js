@@ -6,6 +6,7 @@ module.exports = {
        'app':'./app/views/app',
        'node-theme':'./app/components/node-theme.vue',
        'widget-theme':'./app/components/widget-theme.vue',
+       'widgets-blogs': './app/components/widgets-blog.vue'
     },
     output: {
         path: path.resolve(__dirname, './app/bundle'),

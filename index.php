@@ -2,6 +2,19 @@
 return [
     'name' => 'medusa',
 
+    'autoload' => [
+        'GreenCheap\\Medusa\\' => 'src'
+    ],
+
+    'routes' => [
+        '/api/medusa' => [
+            'name' => '@api/medusa',
+            'controller' => [
+                'GreenCheap\\Medusa\\Controller\\ApiMedusaController'
+            ]
+        ]
+    ],
+
     'menus' => [
         'main' => 'Main',
         'second' => 'Second',
@@ -43,6 +56,10 @@ return [
         'titleDomElement' => 'h1',
         'titleColor' => '',
         'titleClass' => ''
+    ],
+
+    'widgets' => [
+        'widgets/blogs.php'
     ],
 
     'events' => [

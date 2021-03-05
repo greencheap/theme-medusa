@@ -66,49 +66,67 @@
             </div>
         </header>
 
-        <div id="tm-mobile-navbar" uk-offcanvas>
-            <div class="uk-offcanvas-bar">
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-                <a class="uk-logo" href="<?= $view->url()->get() ?>">
-                    <?php if ($params['logo']) : ?>
-                        <img width="150px" src="<?= $this->escape($params['logo']) ?>" alt="<?= $params['title'] ?>">
-                    <?php else : ?>
-                        <?= $params['title'] ?>
-                    <?php endif ?>
-                </a>
-                
-                <?php if($view->menu()->exists('main')): ?>
-                    <div class="uk-margin">
-                        <?= $view->menu('main', 'defined/menu/offcanvas-nav.php') ?>
-                    </div>
-                <?php endif ?>
+        <div id="tm-mobile-navbar" class="uk-modal-full" uk-modal>
+            <div class="uk-modal-dialog">
+                <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                <div class="uk-section-default uk-flex uk-flex-middle uk-flex-center" uk-height-viewport>
+                    <div class="uk-text-center">
+                        <?php if($view->position()->exists('navbar-vertical')): ?>
+                            <ul class="uk-list">
+                                <?= $view->position('navbar-vertical', 'positions/position-navbar.php') ?>
+                            </ul>
+                        <?php endif ?>
+                        
+                        <?php if($view->menu()->exists('main')): ?>
+                            <div class="uk-margin">
+                                <?= $view->menu('main', 'defined/menu/offcanvas-nav.php') ?>
+                            </div>
+                        <?php endif ?>
 
-                <?php if($view->position()->exists('navbar')): ?>
-                    <ul class="uk-list">
-                        <?= $view->position('navbar', 'positions/position-navbar.php') ?>
-                    </ul>
-                <?php endif ?>
-
-                <div class="uk-margin">
-                    <?php if($view->params->get('registration_permit')): ?>
-                        <a href="<?= $view->url('@user/login') ?>" class="uk-button uk-button-secondary">
-                            <?= __('Sign In') ?>
+                        <a class="uk-logo" href="<?= $view->url()->get() ?>">
+                            <?php if ($params['logo']) : ?>
+                                <img width="150px" src="<?= $this->escape($params['logo']) ?>" alt="<?= $params['title'] ?>">
+                            <?php else : ?>
+                                <?= $params['title'] ?>
+                            <?php endif ?>
                         </a>
-                    <?php endif ?>
-                    <?php if($app['user']->isAuthenticated()): ?>
-                        <ul class="uk-grid uk-flex-middle">
-                            <li><a href="<?= $view->url('@user/profile') ?>"><img class="uk-border-circle" data-src="<?= $app['user']->getAvatar() ?>" width="40" uk-img></a></li>
-                            <li><a title="<?= __('Logout') ?>" uk-tooltip href="<?= $view->url('@user/logout') ?>" uk-icon="icon:sign-out;ratio:1.3"></a></li>
-                        </ul>
-                    <?php endif ?>
-                </div>
 
-                <?php if($view->menu()->exists('others')): ?>
-                    <hr>
-                    <div class="uk-margin">
-                        <?= $view->menu('others', 'defined/menu/offcanvas-nav.php') ?>
+                        <?php if($view->menu()->exists('main')): ?>
+                            <div class="uk-margin">
+                                <?= $view->menu('second', 'defined/menu/offcanvas-nav.php') ?>
+                            </div>
+                        <?php endif ?>
+
+                        <?php if($view->position()->exists('navbar')): ?>
+                            <ul class="uk-list">
+                                <?= $view->position('navbar', 'positions/position-navbar.php') ?>
+                            </ul>
+                        <?php endif ?>
+
+                        <div class="uk-margin">
+                            <?php if($view->params->get('registration_permit')): ?>
+                                <a href="<?= $view->url('@user/login') ?>" class="uk-button uk-button-secondary">
+                                    <?= __('Sign In') ?>
+                                </a>
+                            <?php endif ?>
+                            <?php if($app['user']->isAuthenticated()): ?>
+                                <div class="uk-flex uk-flex-center">
+                                    <ul class="uk-grid uk-flex-middle">
+                                        <li><a href="<?= $view->url('@user/profile') ?>"><img class="uk-border-circle" data-src="<?= $app['user']->getAvatar() ?>" width="40" uk-img></a></li>
+                                        <li><a title="<?= __('Logout') ?>" uk-tooltip href="<?= $view->url('@user/logout') ?>" uk-icon="icon:sign-out;ratio:1.3"></a></li>
+                                    </ul>
+                                </div>
+                            <?php endif ?>
+                        </div>
+
+                        <?php if($view->menu()->exists('others')): ?>
+                            <hr>
+                            <div class="uk-margin">
+                                <?= $view->menu('others', 'defined/menu/offcanvas-nav.php') ?>
+                            </div>
+                        <?php endif ?>
                     </div>
-                <?php endif ?>
+                </div>
             </div>
         </div>
 
@@ -156,7 +174,7 @@
         <?php endif ?> 
         
         <footer class="uk-section uk-section-muted uk-section-xsmall">
-            <div class="uk-container uk-text-center uk-text-meta">
+            <div class="uk-container uk-text-center uk-text-primary uk-text-small">
                 <u><?= $params->get('title') ?></u> developed with love, caffeine and <a href="https://greencheap.net" target="_blank">GreenCheap CMS</a>
             </div>
         </footer>

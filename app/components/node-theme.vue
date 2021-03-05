@@ -1,6 +1,28 @@
 <template>
     <div class="uk-form-horizontal">
         <div class="uk-margin">
+            <label class="uk-form-label">{{ "Page Title" | trans }}</label>
+            <div class="uk-form-controls">
+                <input
+                    type="text"
+                    class="uk-input uk-form-width-large"
+                    v-model="node.theme.pageTitle"
+                />
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label">{{ "Sub Title" | trans }}</label>
+            <div class="uk-form-controls">
+                <input
+                    type="text"
+                    class="uk-input uk-form-width-large"
+                    v-model="node.theme.subTitle"
+                />
+            </div>
+        </div>
+
+        <div class="uk-margin">
             <div class="uk-margin">
                 <label class="uk-form-label">{{ "Section" | trans }}</label>
                 <div class="uk-form-controls">
